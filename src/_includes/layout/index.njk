@@ -1,0 +1,34 @@
+---
+pagination:
+    data: collections.all
+    alias: posts
+    size: 10
+---
+{% include "partial/header.njk" %}
+{% include "partial/nav.njk" %}
+<section class="section">
+    <div class="container">
+        <div class="content">
+            {% for post in posts %}
+            <div class="block">
+                <h3 class="title is-size-4"><a href="{{post.url|url}}">{{post.data.title}}</a></h3>
+                <h4 class="is-size-5 has-text-grey-dark has-text-weight-medium">——{{post.data.subtitle}}</h4>
+                <div>
+                    <span>Post by {{post.data.author}}</span>
+                    <span>in {{post.date|dateformat}}</span>
+                </div>
+                <div class = "mt-2">
+                    <span>标签：</span>
+                    <div class="tags is-inline-block">
+                    {% for tag in post.data.tags %}
+                        <span class="tag is-rounded is-warning"># {{ tag }} </span>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% include "partial/footer.njk" %}

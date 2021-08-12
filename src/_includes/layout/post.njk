@@ -1,0 +1,57 @@
+{% include "partial/header.njk" %}
+{% include "partial/nav.njk" %}
+<style>
+    .content {
+        line-height: 2rem;
+    }
+    h2 {
+        text-align: center;
+        margin: 3rem 0 !important;
+        color: hsl(0, 0, 21%) !important;
+    }
+    h2::before {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    h2::after {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+</style>
+<div class="reader-bar-start">
+    <section class="section">
+        <h1 class="title is-size-2 has-text-centered">{{ title }}</h1>
+        <h1 class="subtitle is-size-4 mt-2 has-text-grey has-text-centered">—— {{ subtitle }}</h1>
+        <div class="tags is-centered">
+            {% for tag in tags %}
+                <span class="tag is-rounded is-warning">#{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <div class="content">
+                        {{ content|safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script
+        src="https://utteranc.es/client.js"
+        repo="linshiyan1992/tech-journal"
+        issue-term="title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async></script>
+    {% include "partial/footer.njk" %}
+    {% readerBar %}
+</div>

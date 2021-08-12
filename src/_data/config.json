@@ -1,0 +1,10 @@
+{
+    "siteName": "士严的学习日志",
+    "siteNameEn": "Shiyan Lim's Tech Journal",
+    "author": "Shiyan Lim",
+    "status": {
+        "learn": "计算机网络",
+        "practice": "网络开发",
+        "read": "How To Read A Book"
+    }
+}
