@@ -13,6 +13,10 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addLayoutAlias('index', 'layout/index.njk');
     eleventyConfig.addLayoutAlias('page', 'layout/page.njk');
+    eleventyConfig.addLayoutAlias('pat', 'layout/pat.njk');
+    eleventyConfig.addLayoutAlias('theory', 'layout/theory.njk');
+    eleventyConfig.addLayoutAlias('practice', 'layout/practice.njk');
+    eleventyConfig.addLayoutAlias('think', 'layout/think.njk');
     eleventyConfig.addLayoutAlias('archive', 'layout/archive.njk');
     eleventyConfig.addLayoutAlias('post', 'layout/post.njk');
 
@@ -31,7 +35,11 @@ module.exports = function (eleventyConfig) {
         markdownIt().use(markdownItAnchor)
     );
 
-    eleventyConfig.addPlugin(pluginTOC);
+    eleventyConfig.addPlugin(pluginTOC,{
+        tags:['h2','h3','h4'],
+        wrapper:'div',
+        wrapperClass:'content'
+    });
 
     eleventyConfig.addPlugin(pluginRss);
 

@@ -4,40 +4,71 @@
     .content {
         line-height: 2rem;
     }
-    h2 {
+    h3 {
         text-align: center;
         margin: 3rem 0 !important;
-        color: hsl(0, 0, 21%) !important;
+        color: hsl(0, 0%, 21%) !important;
     }
-    h2::before {
+    h3::before {
         content: "\a7";
         padding: 10px;
         color: #ccc;
         font-size: 1.5rem;
         font-weight: 400;
     }
-    h2::after {
+    h3::after {
         content: "\a7";
         padding: 10px;
         color: #ccc;
         font-size: 1.5rem;
         font-weight: 400;
+    }
+    .content ol {
+        margin-top: 0.5rem !important;
+    }
+    .toc {
+        position: sticky !important;
+        top: 10px !important;
+        right: 20px !important;
+    }
+    .content .number {
+        display: inline;
+        padding: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        text-align: inherit;
+        vertical-align: inherit;
+        border-radius: inherit;
+        font-weight: inherit;
+        white-space: inherit;
+        background: inherit;
+        margin: inherit;
     }
 </style>
 <div class="reader-bar-start">
-    <section class="section">
-        <h1 class="title is-size-2 has-text-centered">{{ title }}</h1>
+    <section class="section head">
+        <h1 class="title is-size-2  has-text-centered">{{ title }}</h1>
         <h1 class="subtitle is-size-4 mt-2 has-text-grey has-text-centered">—— {{ subtitle }}</h1>
         <div class="tags is-centered">
             {% for tag in tags %}
-                <span class="tag is-rounded is-warning">#{{ tag }}</span>
+                {% set name = '/'+ tag + '/' %}
+                <a href="{{ name|url }}">
+                    <span class="tag is-rounded is-warning">#{{ tag }}</span>
+                </a>
             {% endfor %}
         </div>
     </section>
+    <div class="container is-pulled-right toc is-hidden-tablet is-hidden-touch">
+        {% if content | toc %}
+            <aside>
+                {{ content | toc| safe }}
+            </aside>
+        {% endif %}
+    </div>
     <section class="section">
         <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-half">
+            <div class="columns is-centered is-flex-touch">
+                <div class="column is-half is-five-sixths-touch">
                     <div class="content">
                         {{ content|safe }}
                     </div>

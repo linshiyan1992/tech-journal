@@ -1,0 +1,75 @@
+<style>
+    .content {
+        line-height: 2rem;
+    }
+    h2 {
+        text-align: center;
+        margin: 3rem 0 !important;
+        color: hsl(0, 0, 21%) !important;
+    }
+    h2::before {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    h2::after {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+</style>
+{% include "partial/header.njk" %}
+<section class="section has-background-info is-medium">
+    <h1 class="title is-size-1  has-text-centered">{{ title }}</h1>
+    <h1 class="subtitle is-size-2 mt-2 has-text-grey-dark has-text-centered">{{ subtitle }}</h1>
+</section>
+{% include "partial/nav.njk" %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <div class="content">
+                    {{ content|safe }}
+                    <hr>
+                        {% for post in collections.theory %}
+                            <div class="block">
+                                <h3 class="title is-size-4">
+                                    <a href="{{ post.url|url }}">{{ post.data.title }}</a>
+                                </h3>
+                                <h4 class="is-size-5 has-text-grey-dark has-text-weight-medium">——{{ post.data.subtitle }}</h4>
+                                <div>
+                                    <span>Post by {{ post.data.author }}</span>
+                                    <span>in {{ post.date|dateformat }}</span>
+                                </div>
+                                <div class="mt-2">
+                                    <span>标签：</span>
+                                    <div class="tags is-inline-block">
+                                        {% for tag in post.data.tags %}
+                                            {% set name = '/'+ tag + '/' %}
+                                            <a href="{{ name|url }}">
+                                                <span class="tag is-rounded is-warning"># {{ tag }}
+                                                </span>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script
+            src="https://utteranc.es/client.js"
+            repo="linshiyan1992/tech-journal"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async></script>
+        {% include "partial/footer.njk" %}

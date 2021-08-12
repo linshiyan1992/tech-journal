@@ -1,3 +1,27 @@
+<style>
+    .content {
+        line-height: 2rem;
+    }
+    h2 {
+        text-align: center;
+        margin: 3rem 0 !important;
+        color: hsl(0, 0, 21%) !important;
+    }
+    h2::before {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    h2::after {
+        content: "\a7";
+        padding: 10px;
+        color: #ccc;
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+</style>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,25 +36,24 @@
             crossorigin="anonymous">
         
             
-            <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-            <link rel="manifest" href="site.webmanifest">
+            <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+            <link rel="manifest" href="../site.webmanifest">
         
         <title>士严的学习日志|Shiyan Lim&#39;s Tech Journal</title>
     </head>
 </html>
 <body>
     
-        <section class="section is-small has-background-white">
-            <h1 class="title is-size-1 is-size-2-touch has-text-centered">士严的学习日志</h1>
-            <h3 class="subtitle is-size-2 is-size-4-touch has-text-centered mt-2">Shiyan Lim&#39;s Tech Journal</h3>
-        </section>
-    
 </body>
+<section class="section has-background-info is-medium">
+    <h1 class="title is-size-1  has-text-centered">理论</h1>
+    <h1 class="subtitle is-size-2 mt-2 has-text-grey-dark has-text-centered">Theory</h1>
+</section>
 <div class="tabs is-boxed is-centered">
     <ul>
-        <li class="is-active ">
+        <li class=" ">
             <a href="/tech-journal/">
                 <span class="icon is-small has-text-warning">
                     <i class="fas fa-home"></i>
@@ -54,7 +77,7 @@
                 <span>PAT</span>
             </a>
         </li>
-        <li class=" ">
+        <li class="is-active has-background-warning  ">
             <a href="/tech-journal/theory/">
                 <span class="icon is-small has-text-warning">
                     <i class="fab fa-readme"></i>
@@ -82,48 +105,26 @@
 </div>
 <section class="section">
     <div class="container">
-        <div class="content">
-            
-            <div class="block">
-                <h3 class="title is-size-4"><a href="/tech-journal/post/my-first-post/">开博大吉</a></h3>
-                <h4 class="is-size-5 has-text-grey-dark has-text-weight-medium">——在知乎外又为自己找了一个码字的地方</h4>
-                <div>
-                    <span>Post by Shiyan Lim</span>
-                    <span>in 2021-08-12 20:32</span>
-                </div>
-                <div class = "mt-2">
-                    <span>标签：</span>
-                    <div class="tags is-inline-block">
-                    
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <div class="content">
+                    <p>你会在这里看到关于计算机、软件工程以及一些数学的讨论话题。</p>
+
+                    <hr>
                         
-                        <a href="/tech-journal/费曼学习法/">
-                            <span class="tag is-rounded is-warning"># 费曼学习法 </span>
-                        </a>
-                    
-                        
-                        <a href="/tech-journal/学习方法论/">
-                            <span class="tag is-rounded is-warning"># 学习方法论 </span>
-                        </a>
-                    
-                        
-                        <a href="/tech-journal/知识管理/">
-                            <span class="tag is-rounded is-warning"># 知识管理 </span>
-                        </a>
-                    
-                        
-                        <a href="/tech-journal/网络开发/">
-                            <span class="tag is-rounded is-warning"># 网络开发 </span>
-                        </a>
-                    
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr>
-            
-        </div>
-    </div>
-</section>
-<footer class="footer is-centered has-background-white mt-5">
+        </section>
+        <script
+            src="https://utteranc.es/client.js"
+            repo="linshiyan1992/tech-journal"
+            issue-term="title"
+            theme="github-light"
+            crossorigin="anonymous"
+            async></script>
+        <footer class="footer is-centered has-background-white mt-5">
     <div class="has-text-centered">&copy;<strong>Shiyan Lim's Tech Jornal</strong>
         2021</div>
     <div class="has-text-centered">Proudly Powered by

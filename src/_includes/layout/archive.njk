@@ -1,15 +1,29 @@
 ---
-pagination:
-    data: collections.all
-    alias: posts
-    size: 10
+pagination: 
+    data: collections
+    alias: tag
+    size: 1
+    filter: 
+        - all
+        - pat
+        - theory
+        - practice
+        - thinking
+permalink: "/{{tag}}/index.html"
+eleventyExcludeFromCollections: true
 ---
+
 {% include "partial/header.njk" %}
 {% include "partial/nav.njk" %}
+<section class="section is-small">
+    <div class="container">
+        <h1 class="title is-size-3 has-text-grey-dark">标签：{{ tag }}</h1>
+    </div>
+</section>
 <section class="section">
     <div class="container">
         <div class="content">
-            {% for post in posts %}
+            {% for post in collections[tag] %}
             <div class="block">
                 <h3 class="title is-size-4"><a href="{{post.url|url}}">{{post.data.title}}</a></h3>
                 <h4 class="is-size-5 has-text-grey-dark has-text-weight-medium">——{{post.data.subtitle}}</h4>

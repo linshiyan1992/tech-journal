@@ -11,27 +11,34 @@
             integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
             crossorigin="anonymous">
         {% if page.url === "/" %}
+            {# FAVICON #}
             <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
             <link rel="manifest" href="site.webmanifest">
-        {% elif page.url === '/about/' %}
+        {% elif page.url === '/about/' or page.url === '/pat/' or page.url === '/theory/' or page.url === '/practice/' or page.url === '/thinking/' %}
+            {# FAVICON #}
             <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
             <link rel="manifest" href="../site.webmanifest">
         {% else %}
+            {# FAVICON #}
             <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
-            <link rel="manifest" href="../../site.webmanifest">
+            <link
+            rel="manifest" href="../../site.webmanifest"> {# PRISM #}
+            <link rel="stylesheet" href="../../public/css/prism-tomorrow.css">
         {% endif %}
         <title>{{ config.siteName }}|{{ config.siteNameEn }}</title>
     </head>
 </html>
 <body>
-    <section class="section is-small has-background-white">
-        <h1 class="title is-size-1 has-text-centered">{{ config.siteName }}</h1>
-        <h3 class="subtitle is-size-2 has-text-centered mt-2">{{ config.siteNameEn }}</h3>
-    </section>
+    {% if page.url!=='/about/' and page.url!=='/pat/' and page.url!=='/theory/' and page.url!=='/practice/' and page.url!=='/thinking/' %}
+        <section class="section is-small has-background-white">
+            <h1 class="title is-size-1 is-size-2-touch has-text-centered">{{ config.siteName }}</h1>
+            <h3 class="subtitle is-size-2 is-size-4-touch has-text-centered mt-2">{{ config.siteNameEn }}</h3>
+        </section>
+    {% endif %}
 </body>

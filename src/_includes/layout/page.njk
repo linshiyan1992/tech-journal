@@ -1,5 +1,3 @@
-{% include "partial/header.njk" %}
-{% include "partial/nav.njk" %}
 <style>
     .content {
         line-height: 2rem;
@@ -24,6 +22,12 @@
         font-weight: 400;
     }
 </style>
+{% include "partial/header.njk" %}
+<section class="section has-background-warning is-medium">
+    <h1 class="title is-size-1  has-text-centered">{{ title }}</h1>
+    <h1 class="subtitle is-size-2 mt-2 has-text-grey-dark has-text-centered">{{ subtitle }}</h1>
+</section>
+{% include "partial/nav.njk" %}
 <section class="section">
     <div class="container">
         <div class="columns is-centered">
